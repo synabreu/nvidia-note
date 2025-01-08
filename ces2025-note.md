@@ -1,6 +1,20 @@
 # ces2025-note 
 ### CES 2025 - NVIDIA Keynote 발표에서 공개된 기술 및 프레임워크 주요 노트 ###
 
+<개발자 테크 블로그>
+
+* [새 NVIDIA NeMo 프레임워크 기능으로 맞춤형 비디오 파운데이션 모델 파이프라인 가속화](https://developer.nvidia.com/blog/accelerate-custom-video-foundation-model-pipelines-with-new-nvidia-nemo-framework-capabilities/)
+* [NVIDIA Launchables를 통해 최고의 NVIDIA AI를 원클릭 배포](https://developer.nvidia.com/blog/one-click-deployments-for-the-best-of-nvidia-ai-with-nvidia-launchables/)
+* [최신 NVIDIA Isaac 릴리스를 통해 로봇 학습, 인식, 및 조작 기술 발전](https://developer.nvidia.com/blog/advancing-robot-learning-perception-and-manipulation-with-latest-nvidia-isaac-release/)
+* [NVIDIA AI Blueprint를 사용하여 비디오 검색 및 요약 에이전트 빌드](https://developer.nvidia.com/blog/build-a-video-search-and-summarization-agent-with-nvidia-ai-blueprint/)
+* [NVIDIA Project DIGITS](https://www.nvidia.com/en-us/project-digits/) - 여러분을 위한 책상 위에 있는 Grace Blackwell AI 슈퍼컴퓨터
+* [NVIDIA Omniverse Spatial Streaming을 통해 XR에서 디지털 트윈 경험](https://developer.nvidia.com/blog/experience-digital-twins-in-xr-with-nvidia-omniverse-spatial-streaming/)
+* [휴머노이드 로봇 학습을 위한 합성 동작 생성 파이프라인 구축](https://developer.nvidia.com/blog/building-a-synthetic-motion-generation-pipeline-for-humanoid-robot-learning/)
+* [지각 기반 Physical AI용 Generative AI 지원 합성 데이터 파이프라인을 구축하는 방법](https://developer.nvidia.com/blog/how-to-build-a-generative-ai-enabled-synthetic-data-pipeline-for-perception-ai/)
+* [Physcial AI를 발전시키는 NVIDIA Cosmos World Foundation Model 플랫폼](https://developer.nvidia.com/blog/advancing-physical-ai-with-nvidia-cosmos-world-foundation-model-platform/)
+* [정확성과 효율성을 통해 에이전트 기반 AI 워크플로를 가속화하는 Llama Nemotron 모델](https://developer.nvidia.com/blog/llama-nemotron-models-accelerate-agentic-ai-workflows-with-accuracy-and-efficiency/?ncid=so-face-807308)
+* [AI 기반 그래픽 혁신의 새로운 시대를 여는 NVIDIA RTX Neural Rendering](https://developer.nvidia.com/blog/nvidia-rtx-neural-rendering-introduces-next-era-of-ai-powered-graphics-innovation/)
+* [인간 선호도에 맞춘 LLM 정렬을 개선하는 데 도움을 주는 새 보상 모델](https://developer.nvidia.com/blog/new-reward-model-helps-improve-llm-alignment-with-human-preferences/)
 
 <오픈 소스>
 
@@ -21,20 +35,6 @@
 * [NVIDIA Cosmos](https://www.nvidia.com/en-us/ai/cosmos/) - 세계적인 파운데이션 모델을 통해 Physical AI 개발을 가속화함.
 
 
-<Technical Blog>
-
-* [새 NVIDIA NeMo 프레임워크 기능으로 맞춤형 비디오 파운데이션 모델 파이프라인 가속화](https://developer.nvidia.com/blog/accelerate-custom-video-foundation-model-pipelines-with-new-nvidia-nemo-framework-capabilities/)
-* [NVIDIA Launchables를 통해 최고의 NVIDIA AI를 원클릭 배포](https://developer.nvidia.com/blog/one-click-deployments-for-the-best-of-nvidia-ai-with-nvidia-launchables/)
-* [최신 NVIDIA Isaac 릴리스를 통해 로봇 학습, 인식, 및 조작 기술 발전](https://developer.nvidia.com/blog/advancing-robot-learning-perception-and-manipulation-with-latest-nvidia-isaac-release/)
-* [NVIDIA AI Blueprint를 사용하여 비디오 검색 및 요약 에이전트 빌드](https://developer.nvidia.com/blog/build-a-video-search-and-summarization-agent-with-nvidia-ai-blueprint/)
-* [NVIDIA Project DIGITS](https://www.nvidia.com/en-us/project-digits/) - 여러분을 위한 책상 위에 있는 Grace Blackwell AI 슈퍼컴퓨터
-* [NVIDIA Omniverse Spatial Streaming을 통해 XR에서 디지털 트윈 경험](https://developer.nvidia.com/blog/experience-digital-twins-in-xr-with-nvidia-omniverse-spatial-streaming/)
-* [휴머노이드 로봇 학습을 위한 합성 동작 생성 파이프라인 구축](https://developer.nvidia.com/blog/building-a-synthetic-motion-generation-pipeline-for-humanoid-robot-learning/)
-* [지각 기반 Physical AI용 Generative AI 지원 합성 데이터 파이프라인을 구축하는 방법](https://developer.nvidia.com/blog/how-to-build-a-generative-ai-enabled-synthetic-data-pipeline-for-perception-ai/)
-* [Physcial AI를 발전시키는 NVIDIA Cosmos World Foundation Model 플랫폼](https://developer.nvidia.com/blog/advancing-physical-ai-with-nvidia-cosmos-world-foundation-model-platform/)
-* [정확성과 효율성을 통해 에이전트 기반 AI 워크플로를 가속화하는 Llama Nemotron 모델](https://developer.nvidia.com/blog/llama-nemotron-models-accelerate-agentic-ai-workflows-with-accuracy-and-efficiency/?ncid=so-face-807308)
-* [AI 기반 그래픽 혁신의 새로운 시대를 여는 NVIDIA RTX Neural Rendering](https://developer.nvidia.com/blog/nvidia-rtx-neural-rendering-introduces-next-era-of-ai-powered-graphics-innovation/)
-* [인간 선호도에 맞춘 LLM 정렬을 개선하는 데 도움을 주는 새 보상 모델](https://developer.nvidia.com/blog/new-reward-model-helps-improve-llm-alignment-with-human-preferences/)
 
 <참고 자료>
 
