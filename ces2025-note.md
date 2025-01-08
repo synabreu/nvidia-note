@@ -1,4 +1,4 @@
-# ces2025-note 
+# CES 2025-note 
 ### CES 2025 - NVIDIA Keynote 발표에서 공개된 기술 및 프레임워크 주요 노트 ###
 
 <개발자 테크 블로그>
