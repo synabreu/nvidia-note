@@ -13,3 +13,15 @@
 |            | 서버 내 DPU 간 통신: NVLink |멀티 테넌트 환경 운영  |
 |            | 서버 간 GPU 통신: Infiniband |  |
 
+### 2. 기존 네트워크의 한계와 NVIDIA의 해결책 ###
+
+1) 기존 네트워크 한계
+   * AI 워크로드는 기존 클라우드 및 인터넷 인프라에서 실행할 경우, 대량의 네트워크 트래픽을 생성하여 네트워크 인프라에 큰 영향을 미침.
+   * 이로 인해 혼잡(Congestion), 지연 증가(Latency), 대역폭 불균형(Bandwidth Unfairness) 문제가 발생헤 시스템의 GPU를 효율적으로 활용하지 못함
+
+2) NVIDIA 네트워크 해결책
+   * Quantum Infiniband – 대규모 AI 팩토리를 위한 초고성능 네트워크
+   * Spectrum-X Ethernet – 생성형 AI 클라우드(Generative AI Cloud) 가속을 위한 솔루션
+
+### 3. Quantum Infiniband ###
+
