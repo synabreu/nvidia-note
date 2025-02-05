@@ -50,12 +50,12 @@
     * North-South 네트워크: 서버-클라이언트 연결
     * East-West 네트워크: GPU-GPU 연결. 고속, 손실 없는 통신 요구. NVIDIA의 RDMA 기반 Infiniband 및 RoCE(RDMA over Converged Ethernet) 기술 활용
    
-### 5. Quantum-2 및 차세대 Infiniband ###
+### 6. Quantum-2 및 차세대 Infiniband ###
 
   * 현재 NVIDIA는 Quantum-2 Infiniband 솔루션 제공
   * 차세대 Quantum-X800(800Gbps) 기술 개발 중 - 기존 대비 5배 확장성 증가, 4.4 테라플롭스의 네트워크 컴퓨팅 성능 제공
 
-### 6. Spectrum-X 및 RoCE 기반 AI 네트워킹 ###
+### 7. Spectrum-X 및 RoCE 기반 AI 네트워킹 ###
 
   * Spectrum-X는 RoCE 확장 기술을 활용하여 AI 클라우드 성능을 극대화
   * 4.3배 증가한 대역폭, 2.2배 낮은 지연증 구현
