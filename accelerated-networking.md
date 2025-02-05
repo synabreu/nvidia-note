@@ -1,7 +1,8 @@
 # AI 데이터센터 관점에서 NVIDIA의 네트워킹 솔루션 #
 
+핵심 정리: NVIDIA는 Quantum Infiniband 및 Spectrum-X Ethernet을 통해 세계에서 가장 높은 성능의 AI 네트워크 솔루션을 제공하고, 메모리 패브릭 네트워크 인프라 구축 시 적극 고려해야 함. 
 
-### <u>1. 데이터 센터에서의 네트워킹</u> ###
+### 1. 데이터 센터에서의 네트워킹 ###
 
 |항목|AI 팩토리| AI 클라우드|
 |----|---------|--------|
@@ -42,4 +43,23 @@
       * 전통적인 이더넷 대비 1.6배 증가한 AI 네트워크 성능
 
 ### 5. NVIDIA 네트워크 플랫폼 ###
-  * 
+  * Quantum X800 Infiniband – 대규모 AI 시스템을 위한 차세대 플랫폼
+  * BlueField-3 DPU – 네트워크, 스토리지, 보안을 통합한 데이터센터 가속 솔루션
+  * Spectrum-X Ethernet - AI 클라우드 성능을 극대화하기 위한 이더넷 플랫폼
+  * 네트워크 연결 방식에 따라
+    * North-South 네트워크: 서버-클라이언트 연결
+    * East-West 네트워크: GPU-GPU 연결. 고속, 손실 없는 통신 요구. NVIDIA의 RDMA 기반 Infiniband 및 RoCE(RDMA over Converged Ethernet) 기술 활용
+   
+### 5. Quantum-2 및 차세대 Infiniband ###
+
+  * 현재 NVIDIA는 Quantum-2 Infiniband 솔루션 제공
+  * 차세대 Quantum-X800(800Gbps) 기술 개발 중 - 기존 대비 5배 확장성 증가, 4.4 테라플롭스의 네트워크 컴퓨팅 성능 제공
+
+### 6. Spectrum-X 및 RoCE 기반 AI 네트워킹 ###
+
+  * Spectrum-X는 RoCE 확장 기술을 활용하여 AI 클라우드 성능을 극대화
+  * 4.3배 증가한 대역폭, 2.2배 낮은 지연증 구현
+  * 예) 256대의 서버와 2,048개의 H100 GPU로 구성된 이스라엘 AI 클러스터(Israel-1)를 구축하여, Spectum-X 기반의 AI 네트워크 성능을 최적화
+
+    
+    
