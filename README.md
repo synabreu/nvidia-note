@@ -6,9 +6,9 @@ NVIDIA 개발자 플랫폼에 대해 제가 스터디 한 것을 요약해서 �
 
 * NVIDIA Computing
 
-1. NVIDIA 가속 컴퓨팅
-2. NVIDIA GPU
-[3. NVIDIA 가속(Accelerated) 네트워킹](https://github.com/synabreu/nvidia-note/blob/main/accelerated-networking.md)
+<p>1. NVIDIA 가속 컴퓨팅</p>
+<p></p>2. NVIDIA GPU</p>
+<p>[3. NVIDIA 가속(Accelerated) 네트워킹](https://github.com/synabreu/nvidia-note/blob/main/accelerated-networking.md)</p>
 
 
 * NVIDIA Developer
