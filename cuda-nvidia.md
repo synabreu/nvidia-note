@@ -8,5 +8,50 @@
 ### 1. 주요 특징 ###
 
   * C/C++ Compiler, Visual Profiler
-  * GPU-accelerated BLAS libary :  GPU의 병렬 처리 능력을 활용하여 선형대수의 기본 연산(벡터 및 행렬 연산 등)을 고속으로 수행할 수 있도록 최적화된 BLAS (Basic Linear Algebra Subprograms) 함수들을 제공하는 라이브러리. ex) cuBLAS
-  * 
+  * GPU-accelerated BLAS libary : GPU의 병렬 처리 능력을 활용하여 선형대수의 기본 연산(벡터 및 행렬 연산 등)을 고속으로 수행할 수 있도록 최적화된 BLAS (Basic Linear Algebra Subprograms) 함수들을 제공하는 라이브러리. ex) cuBLAS
+  * GPU-accelerated FFT library : GPU의 병렬 처리 능력을 활용하여 고속 푸리에 변환(FFT, Fast Fourier Transform) 연산을 수행할 수 있도록 최적화된 라이브러리. ex) 신호 처리, 이미지 처리, 과학 및 공학 분야에서 주파수 분석, 필터링, 스펙트럼 분석
+  * GPU-accelerated Sparse Matrix library(cuSPARSE)  : GPU의 병렬 처리 능력을 활용하여 희소 행렬(sparse matrix) 연산을 효율적으로 수행할 수 있도록 최적화된 SW 라이브러리. ex) 고성능 컴퓨팅, 과학 계산, 머신러닝, 그래프 분석
+     * 희소 행렬은 대부분의 원소가 0인 행렬을 의미하며, 이러한 행렬에 대한 연산은 메모리 사용과 계산 효율성을 고려할 때 특별한 처리가 필요.
+     * CUDA 아키텍처 기반 GPU에서 희소 행렬-벡터 곱셈, 희소 행렬-행렬 곱셈 등과 같은 다양한 희소 행렬 연산을 빠르고 효율적으로 수행
+ * GPU-accelerated RNG library(cuRand) : GPU의 병렬 처리 능력을 활용하여 난수(Random Number)를 빠르고 효율적으로 생성할 수 있도록 최적화된 소프트웨어. CUDA 아키텍처를 기반으로 하며, 다양한 난수 생성 알고리즘을 지원하여 GPU에서 직접 난수를 생성. ex) 대규모 데이터나 고성능 계산 환경, 고성능 컴퓨팅, 통계 시뮬레이션, 게임 개발, 보안 응용 프로그램
+
+### 2. 주요 특징 ###
+
+ 1) 더 쉬운 애플리케이션 포팅
+    * 멀티 쓰레드 간의 GPU 공유
+    * 단일 호스트 스레드에서 시스템의 모든 GPU를 동시에 사용
+    * 시스템 메모리를 복사 없이 핀 고정(No-copy pinning), cudaMallocHost()보다 빠른 대안 제공
+    * C++의 new/delete 및 가상 함수 지원
+    * 인라인 PTX 어셈블리 지원
+    * sort, reduce 등 템플릿화된 성능 기본 기능을 제공하는 Thrust 라이브러리
+    * 이미지/비디오 처리를 위한 NPP(Nvidia Performance Primitives) 라이브러리
+    * 동일 크기/포맷 텍스처를 더 큰 크기와 높은 성능으로 다루기 위한 계층화 텍스처
+
+ 2) 더 빠른 멀티 GPU 프로그래밍
+    * Unified Virtual Addressing
+    * Peer-to-Peer 커뮤니케이션용 GPUDirect v2.0 지원
+
+ 3) 새로운 또는 향상된 개발 도구 지원
+    * NVIDIA Hopper 및 Ada Lovelace 아키텍처 지원
+    * ARM 서버 프로세서 지원
+    * 지연 모듈 및 커널 로딩(Lazy Module and Kernel Loading)
+    * 개편된 동적 병렬성 API(Dynamic Parallelism APIs)
+    * 개선된 CUDA 그래프 API, 성능 최적화된 라이브러리 및 새로운 개발자 도구 기능
+    * NVIDIA Hopper 아키텍처 지원 - 차세대 텐서 코어 및 트랜스포머 엔진, 고속 NVLink 스위치 시스템, 혼합 정밀도 모드, 2세대 다중 인스턴스 GPU(MIG), 고급 메모리 관리, 표준 C++/Fortran/Python 병렬 언어 구성 요소
+
+### 3. CUDA 12 새 기능 ###
+
+   * Visual Profiler에서 자동화된 성능 분석
+   * Linux와 MacOS용 CUDA-GDB에서의 C++ 디버깅
+   * Fermi 아키텍처용 GPU 바이너리 디스어셈블러 (cuobjdump)
+   * 새로운 디버깅 및 프로파일링 기능을 갖춘 [Parallel Nsight 2.0이](https://developer.nvidia.com/nsight-visual-studio-edition) Windows 개발자용으로 이제 사용 가능함
+
+### 4. 예제 소스 ###
+   * Visual Studio 2022 Community Edition + NVIDIA Nsight Visual Studio Edition 2025.1 버전에서 직접 프로그래밍을 해보고 테스트한 예제 소스 공개
+
+   1) HelloCuda
+   2) CheckDeviceMemory
+
+
+### 5. 블로그 ###
+
