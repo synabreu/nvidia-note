@@ -60,6 +60,7 @@
   * [Constructing CUDA Graphs with Dynamic Parameters](https://developer.nvidia.com/blog/constructing-cuda-graphs-with-dynamic-parameters/)
   * [Improving GPU Application Performance with NVIDIA CUDA 11.2 Device Link Time Optimization](https://developer.nvidia.com/blog/improving-gpu-app-performance-with-cuda-11-2-device-lto/)
   * [CUDA Pro Tip: Control GPU Visibility with CUDA_VISIBLE_DEVICES](https://developer.nvidia.com/blog/cuda-pro-tip-control-gpu-visibility-cuda_visible_devices/)
-  * [CUDA Pro Tip: Understand Fat Binaries and JIT Caching](CUDA Pro Tip: Understand Fat Binaries and JIT Caching)
+  * [CUDA Pro Tip: Understand Fat Binaries and JIT Caching](https://developer.nvidia.com/blog/cuda-pro-tip-understand-fat-binaries-jit-caching/)
+    
 
     
