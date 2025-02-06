@@ -1,6 +1,6 @@
 # AI 데이터센터 관점에서 NVIDIA의 네트워킹 솔루션 #
 
-핵심 정리: NVIDIA는 Quantum Infiniband 및 Spectrum-X Ethernet을 통해 세계에서 가장 높은 성능의 AI 네트워크 솔루션을 제공하고, 메모리 패브릭 네트워크 인프라 구축 시 적극 고려해야 함. 
+핵심 정리: NVIDIA는 Quantum Infiniband 및 Spectrum-X Ethernet을 통해 세계에서 가장 높은 성능의 AI 네트워크 솔루션을 제공하고, [메모리 패브릭 네트워크](https://github.com/synabreu/nvidia-note/blob/main/memory-fabric.md) 인프라 구축 시 적극 고려해야 함. 
 
 ### 1. 데이터 센터에서의 네트워킹 ###
 
@@ -61,5 +61,9 @@
   * 4.3배 증가한 대역폭, 2.2배 낮은 지연증 구현
   * 예) 256대의 서버와 2,048개의 H100 GPU로 구성된 이스라엘 AI 클러스터(Israel-1)를 구축하여, Spectum-X 기반의 AI 네트워크 성능을 최적화
 
-    
-    
+----------------------------------------------------------------------------------------------------------
+
+<용어>
+
+[1. 메모리 패브릭 솔루션](https://github.com/synabreu/nvidia-note/blob/main/memory-fabric.md)
+[2. NVMe 스토리지]
