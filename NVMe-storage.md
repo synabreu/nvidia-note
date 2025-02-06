@@ -23,12 +23,12 @@
 
 ### 2. 기존 SSD(SATA, SAS)와의 차이점 ###
 
-| 특징       | SATA SSD | SAS SSD | NVMe SSD |
-| 인터페이스 | SATA     | SAS     | PCIe     |
-| 최대 속도  | 600 MB/s | 1.2 GB/s | 7GB/s ~ 16GB/s |
-| 지연 시간  | 100 ~ 200 ms | 50 ~ 100 ms | 10 ~ 20 ms |
-| 큐 깊이   | 32개 명령어 | 256개 명령어 | 64큐 x 64K 명령어 |
-| 적용 분야 | 일반 PC, 저성능 서버 | 엔터프라이즈 서버 | AI, HPC, 데이터 센터 |
+| 특징       | SATA SSD            | SAS SSD           | NVMe SSD |
+| 인터페이스 | SATA                | SAS               | PCIe     |
+| 최대 속도  | 600 MB/s            | 1.2 GB/s          | 7GB/s ~ 16GB/s |
+| 지연 시간  | 100 ~ 200 ms        | 50 ~ 100 ms       | 10 ~ 20 ms |
+| 큐 깊이    | 32개 명령어          | 256개 명령어      | 64큐 x 64K 명령어 |
+| 적용 분야  | 일반 PC, 저성능 서버 | 엔터프라이즈 서버 | AI, HPC, 데이터 센터 |
 
 * NVMe는 AI 훈련, 데이터 분석, HPC, 클라우드 환경에 필수적인 고속 스토리지 기술
 * PCIe(Peripheral Component Interconnect Express)는 고속 데이터 전송을 위한 컴퓨터 확장 슬롯(인터페이스) 표준으로, 주로 GPU(그래픽 카드), NVMe SSD, 네트워크 카드(NIC), 사운드 카드 등의 고성능 하드웨어를 연결하는 데 사용됨
