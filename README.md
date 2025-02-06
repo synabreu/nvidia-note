@@ -10,7 +10,7 @@ NVIDIA 개발자 플랫폼에 대해 제가 스터디 한 것을 요약해서 �
 ##### 2. NVIDIA GPU #####
 ##### [3. NVIDIA 가속(Accelerated) 네트워킹](https://github.com/synabreu/nvidia-note/blob/main/accelerated-networking.md) #####
 ##### [4. NVIDIA 스토리지](https://github.com/synabreu/nvidia-note/blob/main/NVMe-storage.md) #####
-##### [5. NVIDIA PCIe)](https://github.com/synabreu/nvidia-note/blob/main/PCIe.md) #####
+##### [5. NVIDIA PCIe](https://github.com/synabreu/nvidia-note/blob/main/PCIe-Slot.md) #####
 
 ### * NVIDIA Developer ###
 
