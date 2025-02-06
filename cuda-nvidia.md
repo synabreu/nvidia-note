@@ -49,8 +49,8 @@
 ### 4. 예제 소스 ###
    * Visual Studio 2022 Community Edition + NVIDIA Nsight Visual Studio Edition 2025.1 버전에서 직접 프로그래밍을 해보고 테스트한 예제 소스 공개
 
-   1) HelloCuda
-   2) CheckDeviceMemory
+   1) [HelloCuda](https://github.com/synabreu/nvidia-note/tree/main/CudaWorkshop/HelloCuda)
+   2) [CheckDeviceMemory](https://github.com/synabreu/nvidia-note/tree/main/CudaWorkshop/CheckDeviceMemory)
 
 
 ### 5. 블로그 ###
