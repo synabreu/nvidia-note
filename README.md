@@ -15,7 +15,7 @@ NVIDIA 개발자 플랫폼에 대해 제가 스터디 한 것을 요약해서 �
 ### * NVIDIA Developer ###
 
 ##### [1. CUDA](https://github.com/synabreu/nvidia-note/blob/main/cuda-nvidia.md) #####
-2. NCCL
+##### 2. NCCL #####
 ##### [3. NIM](https://github.com/synabreu/nvidia-nim-summary) #####
 
 
