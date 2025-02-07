@@ -65,6 +65,6 @@
 
 <용어>
 
-  * 1. 메모리 패브릭 솔루션](https://github.com/synabreu/nvidia-note/blob/main/memory-fabric.md)
+  * 1. 메모리 패브릭 솔루션(https://github.com/synabreu/nvidia-note/blob/main/memory-fabric.md)
   * 2. NVMe 스토리지
-  * 3. NVLink](https://github.com/synabreu/nvidia-note/blob/main/nvlink-nvidia.md)
+  * 3. NVLink(https://github.com/synabreu/nvidia-note/blob/main/nvlink-nvidia.md)
