@@ -21,7 +21,7 @@ NVIDIA 개발자 플랫폼에 대해 제가 스터디 한 것을 요약해서 �
 ##### [3. Performance and Scalability - Distributed Learning](https://github.com/synabreu/nvidia-note/blob/main/distributed-learning.md) #####
 ##### [4. NIM](https://github.com/synabreu/nvidia-nim-summary.md) #####
 
-### 3. NVIDIA Developer Platform ###
+### 4. 관련 용어 ###
 -------------------------------------------------------------------------------------------------------------------------------
 
 ##### [지연시간(latency)](https://github.com/synabreu/latency-terminology.md) #####
