@@ -1,6 +1,6 @@
 # PCIe(Peripheral Component Interconnect Express) #
 
-  * **PCIe(Peripheral Component Interconnect Express)**는 고속 데이터 전송을 위한 컴퓨터 확장 슬롯(인터페이스) 표준
+  * PCIe(Peripheral Component Interconnect Express)는 고속 데이터 전송을 위한 컴퓨터 확장 슬롯(인터페이스) 표준
   * 그래픽 카드(GPU), NVMe SSD, 네트워크 카드(NIC), 사운드 카드 등의 고성능 하드웨어를 연결
 
 ### 1. PCIe의 주요 특징 ###
