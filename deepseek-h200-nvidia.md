@@ -11,3 +11,9 @@ NVIDIA에서 단 2주 만에 3.2배의 처리량 증가를 달성하여 더욱 �
 참고로 SGLang은 DeepSeek 모델, 특히 DeepSeek-V3/R1을 배포하는 데 권장하는 추론 엔진을 말한다. 현재 SGLang은 MLA 최적화, DP Attention, FP8 (W8A8), FP8 KV Cache, 그리고 Torch Compile을 지원해 최첨단의 지연 시간 및 처리량 성능을 제공한다. 또한, vLLM이나 Groq 와 쌍벽을 이루는 추론 엔진이다. 
 
 특히, SGLang v0.4.1은 NVIDIA와 AMD GPU 모두에서 DeepSeek-V3를 완벽하게 실행할 수 있도록 지원한다. 또한 멀티 노드 상에서 텐서 병렬 처리를 지원해 여러 네트워크에 연결된 머신에서 이 모델을 실행할 수 있다. 
+
+### 참고 ###
+
+* [SGLang](https://github.com/sgl-project/sglang/releases)
+* [SGLang을 이용한 8x NVIDIA H200에서 DeepSeek-R1 671B를 배포하는 방법](https://datacrunch.io/blog/deploy-deepseek-r1-on-8x-nvidia-h200)
+* [NVIDIA NIM 모델 카드](https://build.nvidia.com/deepseek-ai/deepseek-r1/modelcard)
