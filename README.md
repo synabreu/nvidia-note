@@ -3,6 +3,7 @@ NVIDIA 개발자 플랫폼에 대해 제가 스터디 한 것을 요약해서 �
 
 ### 1. 최신 업계 정보 ###
 ##### [1. CES 2025 - NVIDIA Keynote 에서 공개된 기술 및 프레임워크 주요 노트](https://github.com/synabreu/nvidia-note/blob/main/ces2025-note.md) #####
+##### [2. DeepSeek-R1 3x Performance on NVIDIA H200 GPUs in 2 weeks](https://github.com/synabreu/nvidia-note/blob/main/deepseek-h200.md) #####
 
 ### 2. NVIDIA Computing ###
 --------------------------------------------------------------------------------------------------------------------------------
