@@ -7,10 +7,10 @@
     2) 컴파일러와 하드웨어 간의 추상화 계층을 제공하며, CUDA 프로그램이 GPU에서 실행되기 전, 최적화 및 기계어로 변환되는 과정에서 중요한 역할
     
 🤖 PTX의 주요 특징
-    * 하드웨어 독립성: PTX는 특정 GPU 아키텍처에 종속되지 않음. 이를 통해 CUDA 코드가 다양한 NVIDIA GPU 아키텍처에서 실행될 수 있도록 함.
-    * 컴파일러의 중간 표현(IR): CUDA 컴파일러는 고수준 언어(C, C++, Fortran 등)로 작성된 코드를 먼저 PTX로 변환함. 이후, PTX는 GPU의 기계어(SASS, Streaming Assembly)로 컴파일됨. 
-    * 최적화 가능성: PTX는 고수준의 최적화 정보를 포함하고 있어, 실행 전 하드웨어에 맞게 추가적인 최적화를 적용할 수 있음.
-    * 미래 호환성: 새로운 GPU 아키텍처가 출시되더라도 기존의 PTX 코드가 재컴파일 또는 최적화를 통해 해당 아키텍처에서 실행될 수 있음.
+   * 하드웨어 독립성: PTX는 특정 GPU 아키텍처에 종속되지 않음. 이를 통해 CUDA 코드가 다양한 NVIDIA GPU 아키텍처에서 실행될 수 있도록 함.
+   * 컴파일러의 중간 표현(IR): CUDA 컴파일러는 고수준 언어(C, C++, Fortran 등)로 작성된 코드를 먼저 PTX로 변환함. 이후, PTX는 GPU의 기계어(SASS, Streaming Assembly)로 컴파일됨. 
+   * 최적화 가능성: PTX는 고수준의 최적화 정보를 포함하고 있어, 실행 전 하드웨어에 맞게 추가적인 최적화를 적용할 수 있음.
+   * 미래 호환성: 새로운 GPU 아키텍처가 출시되더라도 기존의 PTX 코드가 재컴파일 또는 최적화를 통해 해당 아키텍처에서 실행될 수 있음.
 
 🤖 PTX의 역할
   1) CUDA 컴파일 과정:
@@ -26,4 +26,10 @@
    • PTX 파일은 .ptx 확장자를 가지며, CUDA 컴파일러인 nvcc에서 옵션을 통해 생성할 수 있음
    • PTX는 NVIDIA의 GPU 컴퓨팅 생태계에서 중요한 역할을 하며, 고성능 컴퓨팅(HPC)과 딥러닝 같은 분야에서 사용되는 GPU 코드의 효율성을 높이는 핵심 요소
 
-결과적으로 DeepSeek 가 소프트웨어적으로 올바른 계획을 세워서 성능에 촛점을 두어 코딩했다는 점을 단편적으로 볼 수 있는 대목입니다.
+결과적으로 DeepSeek 가 소프트웨어적으로 올바른 계획을 세워서 성능에 촛점을 두어 코딩했다는 점을 단편적으로 알 수 있음. 
+
+### 참고 ###
+
+ * [DeepSeek's AI breakthrough bypasses industry-standard CUDA for some functions, uses Nvidia's assembly-like PTX programming instead](https://www.tomshardware.com/tech-industry/artificial-intelligence/deepseeks-ai-breakthrough-bypasses-industry-standard-cuda-uses-assembly-like-ptx-programming-instead)
+ * [Nvidia Tensor Core-Getting Started with MMA PTX Programming](https://bruce-lee-ly.medium.com/nvidia-tensor-core-getting-started-with-mma-ptx-programming-508e44a6cb7d)
+ * [PTX or PTX ISA](https://smallake.kr/?p=34089&)
