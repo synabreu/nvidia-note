@@ -51,9 +51,9 @@
 
 ### 2. 그래디언트 누적 ###
 
-'''
+```
 training_args = TrainingArguments(per_device_train_batch_size=1, gradient_accumulation_steps=4, **default_args)
-'''
+```
 
 
 ### 용어 ###
