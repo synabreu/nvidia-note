@@ -8,7 +8,7 @@
 
 대규모 트랜스포머 모델을 효율적으로 훈련하려면, GPU나 TPU와 같은 가속기가 필요함. 가장 일반적인 경우는 단일 GPU를 사용하는 경우이고, 단일 GPU에서 훈련 효율을 개선하기 위해 적용할 수 있는 방법들은 다중 GPU와 같은 다른 구성에서도 확장할 수 있다. 그래서 다중 GPU나 CPU 훈련 시 특화된 기술들도 존재하는 것을 명심하라. 
 
-  * [단일 GPU에서 효율적인 학습을 위한 방법과 도구](https://huggingface.co/docs/transformers/v4.48.2/perf_train_gpu_one): GPU 메모리 활용도를 최적화하거나 학습 속도를 높이는 일반적인 접근 방식을 설명함. 
+  * [단일 GPU에서 효율적인 학습을 위한 방법과 도구](https://github.com/synabreu/nvidia-note/blob/main/Huggingface-PS/perf_train_gpu_one.md): GPU 메모리 활용도를 최적화하거나 학습 속도를 높이는 일반적인 접근 방식을 설명함. 
 
   * [다중 GPU 를 이용한 훈련 방법](https://huggingface.co/docs/transformers/v4.48.2/perf_train_gpu_many): 데이터, 텐서, 파이프라인 병렬 처리와 같이 다중 GPU 환경에 적용할 수 있는 추가 최적화 방법을 설명함. 
 
