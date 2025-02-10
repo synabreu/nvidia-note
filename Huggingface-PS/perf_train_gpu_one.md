@@ -15,8 +15,8 @@
 
 | 메서드/도구 | 훈련 속도 향상 | 메모리 활용 최적화 |
 |----------------|----------------|---------------------|
-| 배치 크기 선택(https://huggingface.co/docs/transformers/v4.48.2/en/perf_train_gpu_one#batch-size-choice) | 예             | 아니오               |
-| 그래디언트 누적(https://huggingface.co/docs/transformers/v4.48.2/en/perf_train_gpu_one#gradient-accumulation) | 아니오         | 예                  |
+| [배치 크기 선택](https://huggingface.co/docs/transformers/v4.48.2/en/perf_train_gpu_one#batch-size-choice) | 예             | 아니오               |
+| [그래디언트 누적](https://huggingface.co/docs/transformers/v4.48.2/en/perf_train_gpu_one#gradient-accumulation) | 아니오         | 예                  |
 
 
 
