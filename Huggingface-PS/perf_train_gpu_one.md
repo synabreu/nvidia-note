@@ -49,12 +49,26 @@
   * 파라미터 크기가 작은 경우, [차원 양자화 효과(Dimension Quantization Effects)를](https://docs.nvidia.com/deeplearning/performance/dl-performance-matrix-multiplication/index.html#dim-quantization) 고려.
   * 타일링(tiling)이 발생하는 영역으로, 적절한 배수를 선택하면 성능이 크게 향상
 
-### 2. 그래디언트 누적 ###
+### 2. 그래디언트 누적(Gradient Accumulation) ###
+
+  * 전체 배치에 대한 그래디언트를 한 번에 계산하는 대신, 더 작은 단위로 점진적으로 계산하는 방식
+  * 이 접근법에서는 모델을 통해 **순전파(forward pass) 및 역전파(backward pass)** 를 반복적으로 수행하면서 그래디언트를 누적한다.
+  * 일정 횟수만큼 그래디언트가 누적되면, 그제서야 모델의 최적화(optimization) 단계가 실행
+  * 그래디언트 누적을 활용하면 **GPU 메모리 한계를 초과하지 않으면서도 더 큰 효과적인 배치 크기(effective batch size)를 사용할 수 있게 된다**. 
+  * 그러나 그래디언트 누적 과정에서 **추가적인 순전파 및 역전파 연산이 발생하므로 훈련 속도가 느려질 수 있음**을 유의해야 한다. 
+  * 그래디언트 누적을 활성화하려면 `TrainingArguments`에 `gradient_accumulation_steps` 인자를 추가하면 된다. 
 
 ```
 training_args = TrainingArguments(per_device_train_batch_size=1, gradient_accumulation_steps=4, **default_args)
 ```
 
+위 예제에서 실제 배치 크기(effective batch size) 는 4가 된다. 또한, 훈련 루프에 대한 완전한 제어(full control) 를 원한다면 [🤗 Accelerate를](https://huggingface.co/docs/transformers/v4.48.2/en/perf_train_gpu_one#using--accelerate) 활용할 수도 있다. 
+
+GPU 사용률을 최대한 활용하는 것이 권장되지만, 너무 많은 그래디언트 누적 단계(gradient accumulation steps)가 설정되면 훈련 속도가 더욱 느려질 수 있음을 유의해야 한다. 
+
+예를 들어, per_device_train_batch_size=4가 GPU 메모리 한계에 도달했다고 가정해 보자. 만약 배치 크기 64로 훈련하고 싶다면, per_device_train_batch_size=1과 gradient_accumulation_steps=64로 설정하는 것은 비효율적이다. 
+
+또는, `per_device_train_batch_size=4`로 유지하고, `gradient_accumulation_steps=16`으로 설정하면, 동일한 효과적인 배치 크기(effective batch size) 를 유지하면서도 GPU 리소스를 더 효율적으로 활용할 수 있다. 추가 정보는 RTX-3090 및 A100에서의 배치 크기 및 그래디언트 누적 벤치마크를 참고하라. 
 
 ### 용어 ###
 
@@ -66,13 +80,13 @@ training_args = TrainingArguments(per_device_train_batch_size=1, gradient_accumu
   
 2. [타일링(tiling)]
 
-🔹 정의
+ ✅ 정의
    * 메모리 및 계산 효율성을 높이기 위해 큰 행렬이나 데이터 블록을 작은 조각(타일, tile)으로 나누어 처리하는 최적화 기법
    * 큰 행렬 연산을 작은 블록 단위로 나누어 캐시 및 병렬 처리를 최적화
    * CPU/GPU 연산에서 *메모리 로컬리티(locality)*를 개선하여 성능 향상
    * GEMM(General Matrix Multiplication), CNN, Transformer와 같은 연산에서 활용
 
-🔹 타일링이 중요한 이유
+ ✅ 타일링이 중요한 이유
       1) 메모리 계층 구조 활용
          * 대부분의 하드웨어(CPU/GPU)는 캐시 메모리를 사용하여 성능을 높임
          * 큰 데이터셋을 처리할 때 한 번에 모든 데이터를 메모리에 올리기 어려우므로, 작은 단위(타일)로 나눠서 캐시에 올리는 방식이 더 효율적
@@ -84,3 +98,26 @@ training_args = TrainingArguments(per_device_train_batch_size=1, gradient_accumu
 연속적인 메모리 접근이 가능해져 캐시 적중률(cache hit rate) 증가
          * 예) 한 번에 32개의 샘플을 처리하고 싶지만 GPU 메모리 제한으로 인해 8개씩만 처리할 수 있다면, 4번의 미니배치에서 그래디언트를 모은 후 한 번의 업데이트를 수행함.
      
+ ✅ 예제: 행렬 곱셈에서의 타일링
+   기본 행렬 곱셈 방식:
+   𝐶 = 𝐴 × 𝐵
+   일반적인 행렬 곱셈은 모든 행과 열을 순차적으로 계산하므로, 캐시 효율이 낮음.
+
+   1) 타일링 적용:
+    * 행렬을 작은 블록(타일) 단위로 나누어 캐시에서 효율적으로 처리
+    * 작은 블록 내에서 연산을 먼저 수행한 후, 결과를 합치는 방식
+
+   📌 Tensor Core를 활용하는 NVIDIA GPU에서는 특정 크기의 타일(예: 16x16, 32x32)을 사용하면 최적의 성능을 얻을 수 있음.
+
+ ✅ 타일링을 적용하는 대표적인 기술
+   🔹Loop Tiling / Blocking: CPU/GPU에서 for 루프 내의 연산을 블록 단위로 나누어 실행
+   🔹Tensor Core 연산: NVIDIA Tensor Core는 특정 크기의 타일(예: 16x16)을 사용해 행렬 연산 가속
+   🔹Image Processing (CNNs): 이미지 처리에서는 Convolution 연산에서 타일링을 활용하여 메모리 효율과 연산 속도를 향상
+   🔹Transformer 모델 최적화: GPT, BERT 같은 대형 모델에서 self-attention 연산을 타일링하여 메모리 사용량 감소
+
+✅ 결론 
+ 🔹 타일링은 메모리 접근 패턴을 최적화하고 병렬 연산을 최대한 활용하기 위한 필수적인 기법
+ 🔹 행렬 곱셈(GEMM), CNN, Transformer 등에서 성능을 극대화하는 데 사용
+ 🔹 적절한 타일 크기를 선택하면 Tensor Core와 같은 가속 하드웨어의 성능을 극대화할 수 있음
+
+  🚀 즉, 타일링은 대규모 행렬 연산에서 성능을 극대화하는 필수적인 최적화 기법
