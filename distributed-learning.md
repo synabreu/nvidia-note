@@ -24,4 +24,19 @@
 
 ### 추론 ###
 
+대규모 형태의 모델을 프로덕션 환경에서 효율적으로 추론하는 것은 훈련만큼이나 어려울 수 있다. 아래의 부분에서는 CPU 및 단일/다중 GPU 환경에서 추론을 수행하는 방법을 정리했다. 
+
+  * [단일 CPU에서의 추론](https://huggingface.co/docs/transformers/v4.48.2/en/perf_infer_cpu)
+  * [단일 GPU에서의 추론](https://huggingface.co/docs/transformers/v4.48.2/en/perf_infer_gpu_one)
+  * [다중 GPU 추론](https://huggingface.co/docs/transformers/v4.48.2/en/perf_infer_gpu_multi)
+  * [추론 디버깅](https://huggingface.co/docs/transformers/v4.48.2/en/debugging)
+  * [torch.compile()를 이용한 추론 최적화](https://huggingface.co/docs/transformers/v4.48.2/en/perf_torch_compile)
+  * [대형 모델 인스턴스화](https://huggingface.co/docs/transformers/v4.48.2/en/big_models)
+  * [TensorFlow 모델의 XLA 통합](https://huggingface.co/docs/transformers/v4.48.2/en/tf_xla)
+
+### 중요: 추론 최적화 ###
+
+  * [TensorRT-LLM 이용하는 방법]
+  * [Ollama를 이용하는 방법]
+  * [vLLM을 이용하는 방법]
 
