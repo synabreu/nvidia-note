@@ -15,9 +15,30 @@
 
 | 메서드/도구 | 훈련 속도 향상 | 메모리 활용 최적화 |
 |----------------|----------------|---------------------|
-| [배치 크기 선택](https://huggingface.co/docs/transformers/v4.48.2/en/perf_train_gpu_one#batch-size-choice) | 예             | 아니오               |
+| [배치 크기 선택](https://github.com/synabreu/nvidia-note/edit/main/Huggingface-PS/perf_train_gpu_one.md#batch-size-choice) | 예             | 예              |
 | [그래디언트 누적](https://huggingface.co/docs/transformers/v4.48.2/en/perf_train_gpu_one#gradient-accumulation) | 아니오         | 예                  |
+| [그래디언트 체크포인트](https://huggingface.co/docs/transformers/v4.48.2/en/perf_train_gpu_one#gradient-checkpointing)  | 아니오   | 예   |
+| [혼합 정밀도 훈련](https://huggingface.co/docs/transformers/v4.48.2/en/perf_train_gpu_one#mixed-precision-training)  | 예   | 아마도*   |
+| [torch_empty_cache_steps](https://huggingface.co/docs/transformers/main/en/main_classes/trainer#transformers.TrainingArguments.torch_empty_cache_steps)  | 아니오   | 예   |
+| [Optimizer 선택](https://huggingface.co/docs/transformers/v4.48.2/en/perf_train_gpu_one#optimizer-choice)  | 예  | 예   |
+| [데이터 프리로딩](https://huggingface.co/docs/transformers/v4.48.2/en/perf_train_gpu_one#data-preloading)  | 예   | 아니오   |
+| [DeepSpeed Zero](https://huggingface.co/docs/transformers/v4.48.2/en/perf_train_gpu_one#deepspeed-zero)  | 아니오   | 예   |
+| [torch.compile](https://huggingface.co/docs/transformers/v4.48.2/en/perf_train_gpu_one#using-torchcompile)  | 예   | 아니오   |
+| [파라미터-효율적 미세조정(PEFT, Parameter-Efficient Fine Tuning](https://huggingface.co/docs/transformers/v4.48.2/en/perf_train_gpu_one#using--peft)  | 아니오   | 예   |
 
+*참고: 작은 모델과 큰 배치 크기를 사용할 때 혼합 정밀도를 적용하면 일부 메모리를 절약할 수 있지만, 큰 모델과 작은 배치 크기를 사용할 경우 메모리 사용량이 증가할 수 있음*
+
+위의 방법들을 결합하여 누적 효과를 얻을 수 있다. 이러한 기법들은 모델을 [Trainer로](https://huggingface.co/docs/transformers/v4.48.2/en/main_classes/trainer#transformers.Trainer) 학습하든 순수한 PyTorch 루프를 사용하든 모두 활용할 수 있으며, 후자의 경우 [Accelerate를 사용하여 최적화를 구성할 수 있다.](https://huggingface.co/docs/transformers/v4.48.2/en/perf_train_gpu_one#using--accelerate)  
+
+만약 이러한 방법들로도 충분한 성능 향상이 이루어지지 않는다면, 아래와 같이 옵션들을 고려해 볼 수 있다:  
+
+- [효율적인 소프트웨어 프리빌드가 포함된 자체 맞춤형 Docker 컨테이너를 구축](https://huggingface.co/docs/transformers/v4.48.2/en/perf_train_gpu_one#efficient-software-prebuilds)  
+- [MoE(Mixture of Experts) 모델을 사용하는 방안 고려](https://huggingface.co/docs/transformers/v4.48.2/en/perf_train_gpu_one#mixture-of-experts)  
+- [PyTorch 네이티브 어텐션을 활용하기 위해 모델을 BetterTransformer로 변환](https://huggingface.co/docs/transformers/v4.48.2/en/perf_train_gpu_one#using-pytorch-native-attention-and-flash-attention)  
+
+끝으로, A100과 같은 서버급 GPU로 전환한 이후에도 여전히 성능이 부족하다면 다중 GPU 환경으로 이동하는 것을 고려해야 한다. 위의 모든 방법들은 다중 GPU 환경에서도 유효하며, 추가적인 병렬화 기법을 활용할 수 있다. 다중 GPU 설정에 대한 자세한 내용은 해당 부분에서 확인한다. 
+
+### 1. 배치 크기 선택 ###
 
 
 ### 용어 ###
