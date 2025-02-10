@@ -13,6 +13,11 @@
 
 하이퍼파라미터 튜닝의 일환으로, 어떤 배치 크기가 최상의 결과를 제공하는지 확인한 후, 이에 맞춰 자원을 최적화하는 것이 중요하다. 이 문서에서 다루는 방법과 도구는 학습 과정에 미치는 영향을 기준으로 아래와 같이 분류할 수 있다.
 
+| 메서드/도구 | 훈련 속도 향상 | 메모리 활용 최적화 |
+|----------------|----------------|---------------------|
+| 배치 크기 선택(https://huggingface.co/docs/transformers/v4.48.2/en/perf_train_gpu_one#batch-size-choice) | 예             | 아니오               |
+| 그래디언트 누적(https://huggingface.co/docs/transformers/v4.48.2/en/perf_train_gpu_one#gradient-accumulation) | 아니오         | 예                  |
+
 
 
 ### 용어 ###
