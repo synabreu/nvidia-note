@@ -15,7 +15,7 @@
 
 | 메서드/도구 | 훈련 속도 향상 | 메모리 활용 최적화 |
 |----------------|----------------|---------------------|
-| [배치 크기 선택](https://github.com/synabreu/nvidia-note/edit/main/Huggingface-PS/perf_train_gpu_one.md#batch-size-choice) | 예             | 예              |
+| [배치 크기 선택](https://github.com/synabreu/nvidia-note/edit/main/Huggingface-PS/perf_train_gpu_one.md# 1.-배치-크기-선택) | 예             | 예              |
 | [그래디언트 누적](https://huggingface.co/docs/transformers/v4.48.2/en/perf_train_gpu_one#gradient-accumulation) | 아니오         | 예                  |
 | [그래디언트 체크포인트](https://huggingface.co/docs/transformers/v4.48.2/en/perf_train_gpu_one#gradient-checkpointing)  | 아니오   | 예   |
 | [혼합 정밀도 훈련](https://huggingface.co/docs/transformers/v4.48.2/en/perf_train_gpu_one#mixed-precision-training)  | 예   | 아마도*   |
@@ -39,6 +39,7 @@
 끝으로, A100과 같은 서버급 GPU로 전환한 이후에도 여전히 성능이 부족하다면 다중 GPU 환경으로 이동하는 것을 고려해야 한다. 위의 모든 방법들은 다중 GPU 환경에서도 유효하며, 추가적인 병렬화 기법을 활용할 수 있다. 다중 GPU 설정에 대한 자세한 내용은 해당 부분에서 확인한다. 
 
 ### 1. 배치 크기 선택 ###
+------------------------------------------------------------------------------------
 
   * 최적의 성능을 달성하려면 먼저 적절한 배치 크기를 식별하는 것이 중요
   * 배치 크기 및 입력/출력 뉴런 개수는 2^N 형태로 설정 권장
