@@ -15,16 +15,16 @@
 
 | 메서드/도구 | 훈련 속도 향상 | 메모리 활용 최적화 |
 |----------------|----------------|---------------------|
-| [배치 크기 선택](https://github.com/synabreu/nvidia-note/edit/main/Huggingface-PS/perf_train_gpu_one.md#1.-배치-크기-선택) | 예             | 예              |
-| [그래디언트 누적](https://huggingface.co/docs/transformers/v4.48.2/en/perf_train_gpu_one#gradient-accumulation) | 아니오         | 예                  |
-| [그래디언트 체크포인트](https://huggingface.co/docs/transformers/v4.48.2/en/perf_train_gpu_one#gradient-checkpointing)  | 아니오   | 예   |
-| [혼합 정밀도 훈련](https://huggingface.co/docs/transformers/v4.48.2/en/perf_train_gpu_one#mixed-precision-training)  | 예   | 아마도*   |
-| [torch_empty_cache_steps](https://huggingface.co/docs/transformers/main/en/main_classes/trainer#transformers.TrainingArguments.torch_empty_cache_steps)  | 아니오   | 예   |
-| [Optimizer 선택](https://huggingface.co/docs/transformers/v4.48.2/en/perf_train_gpu_one#optimizer-choice)  | 예  | 예   |
-| [데이터 프리로딩](https://huggingface.co/docs/transformers/v4.48.2/en/perf_train_gpu_one#data-preloading)  | 예   | 아니오   |
-| [DeepSpeed Zero](https://huggingface.co/docs/transformers/v4.48.2/en/perf_train_gpu_one#deepspeed-zero)  | 아니오   | 예   |
-| [torch.compile](https://huggingface.co/docs/transformers/v4.48.2/en/perf_train_gpu_one#using-torchcompile)  | 예   | 아니오   |
-| [파라미터-효율적 미세조정(PEFT, Parameter-Efficient Fine Tuning](https://huggingface.co/docs/transformers/v4.48.2/en/perf_train_gpu_one#using--peft)  | 아니오   | 예   |
+| [배치 크기 선택](https://github.com/synabreu/nvidia-note/edit/main/Huggingface-PS/Batch_size_choice.md) | 예             | 예              |
+| [그래디언트 누적](https://github.com/synabreu/nvidia-note/edit/main/Huggingface-PS/gradient-accumulation.md) | 아니오         | 예                  |
+| [그래디언트 체크포인트](https://github.com/synabreu/nvidia-note/edit/main/Huggingface-PS/gradient-checkpointing.md)  | 아니오   | 예   |
+| [혼합 정밀도 훈련](https://github.com/synabreu/nvidia-note/edit/main/Huggingface-PS/mixed-precision-training.md)  | 예   | 아마도*   |
+| [torch_empty_cache_steps](https://github.com/synabreu/nvidia-note/edit/main/Huggingface-PS/torch_empty_cache_steps.md)  | 아니오   | 예   |
+| [Optimizer 선택](https://github.com/synabreu/nvidia-note/edit/main/Huggingface-PS/optimizer-choice.md)  | 예  | 예   |
+| [데이터 프리로딩](https://github.com/synabreu/nvidia-note/edit/main/Huggingface-PS/data-preloading.md)  | 예   | 아니오   |
+| [DeepSpeed Zero](https://github.com/synabreu/nvidia-note/edit/main/Huggingface-PS/deepspeed-zero.md)  | 아니오   | 예   |
+| [torch.compile](https://github.com/synabreu/nvidia-note/edit/main/Huggingface-PS/using-torchcompile.md)  | 예   | 아니오   |
+| [파라미터-효율적 미세조정(PEFT, Parameter-Efficient Fine Tuning](https://github.com/synabreu/nvidia-note/edit/main/Huggingface-PS/using--peft.md)  | 아니오   | 예   |
 
 *참고: 작은 모델과 큰 배치 크기를 사용할 때 혼합 정밀도를 적용하면 일부 메모리를 절약할 수 있지만, 큰 모델과 작은 배치 크기를 사용할 경우 메모리 사용량이 증가할 수 있음*
 
@@ -37,43 +37,6 @@
 - [PyTorch 네이티브 어텐션을 활용하기 위해 모델을 BetterTransformer로 변환](https://huggingface.co/docs/transformers/v4.48.2/en/perf_train_gpu_one#using-pytorch-native-attention-and-flash-attention)  
 
 끝으로, A100과 같은 서버급 GPU로 전환한 이후에도 여전히 성능이 부족하다면 다중 GPU 환경으로 이동하는 것을 고려해야 한다. 위의 모든 방법들은 다중 GPU 환경에서도 유효하며, 추가적인 병렬화 기법을 활용할 수 있다. 다중 GPU 설정에 대한 자세한 내용은 해당 부분에서 확인한다. 
-
-### 1. 배치 크기 선택 ###
-------------------------------------------------------------------------------------
-
-  * 최적의 성능을 달성하려면 먼저 적절한 배치 크기를 식별하는 것이 중요
-  * 배치 크기 및 입력/출력 뉴런 개수는 2^N 형태로 설정 권장
-  * 보통 8의 배수를 사용하지만, 사용 중인 하드웨어와 모델의 데이터 타입(dtype)에 따라 더 큰 값을 사용할 수도 있음
-  * 완전연결 계층(fully connected layers)에서 수행되는 GEMM(General Matrix Multiplications) 연산과 관련하여 NVIDIA가 권장하는 [입력/출력 뉴런 개수](https://docs.nvidia.com/deeplearning/performance/dl-performance-fully-connected/index.html#input-features) 및 [배치 크기를](https://docs.nvidia.com/deeplearning/performance/dl-performance-fully-connected/index.html#batch-size) 확인 필수
-  * [Tensor Core 요구사항에서는](https://docs.nvidia.com/deeplearning/performance/dl-performance-matrix-multiplication/index.html#requirements-tc) dtype과 하드웨어에 따라 적절한 배수를 정의
-    예) fp16 데이터 타입의 경우 일반적으로 8의 배수를 권장하지만, A100 GPU에서는 64의 배수를 사용하는 것이 더 적합  
-  * 파라미터 크기가 작은 경우, [차원 양자화 효과(Dimension Quantization Effects)를](https://docs.nvidia.com/deeplearning/performance/dl-performance-matrix-multiplication/index.html#dim-quantization) 고려.
-  * 타일링(tiling)이 발생하는 영역으로, 적절한 배수를 선택하면 성능이 크게 향상
-
-### 2. 그래디언트 누적(Gradient Accumulation) ###
-
-  * 전체 배치에 대한 그래디언트를 한 번에 계산하는 대신, 더 작은 단위로 점진적으로 계산하는 방식
-  * 이 접근법에서는 모델을 통해 **순전파(forward pass) 및 역전파(backward pass)** 를 반복적으로 수행하면서 그래디언트를 누적한다.
-  * 일정 횟수만큼 그래디언트가 누적되면, 그제서야 모델의 최적화(optimization) 단계가 실행
-  * 그래디언트 누적을 활용하면 **GPU 메모리 한계를 초과하지 않으면서도 더 큰 효과적인 배치 크기(effective batch size)를 사용할 수 있게 된다**. 
-  * 그러나 그래디언트 누적 과정에서 **추가적인 순전파 및 역전파 연산이 발생하므로 훈련 속도가 느려질 수 있음**을 유의해야 한다. 
-  * 그래디언트 누적을 활성화하려면 `TrainingArguments`에 `gradient_accumulation_steps` 인자를 추가하면 된다. 
-
-```
-training_args = TrainingArguments(per_device_train_batch_size=1, gradient_accumulation_steps=4, **default_args)
-```
-
-위 예제에서 실제 배치 크기(effective batch size) 는 4가 된다. 또한, 훈련 루프에 대한 완전한 제어(full control) 를 원한다면 [🤗 Accelerate를](https://huggingface.co/docs/transformers/v4.48.2/en/perf_train_gpu_one#using--accelerate) 활용할 수도 있다. 
-
-GPU 사용률을 최대한 활용하는 것이 권장되지만, 너무 많은 그래디언트 누적 단계(gradient accumulation steps)가 설정되면 훈련 속도가 더욱 느려질 수 있음을 유의해야 한다. 
-
-예를 들어, per_device_train_batch_size=4가 GPU 메모리 한계에 도달했다고 가정해 보자. 만약 배치 크기 64로 훈련하고 싶다면, per_device_train_batch_size=1과 gradient_accumulation_steps=64로 설정하는 것은 비효율적이다. 
-
-또는, `per_device_train_batch_size=4`로 유지하고, `gradient_accumulation_steps=16`으로 설정하면, 동일한 효과적인 배치 크기(effective batch size) 를 유지하면서도 GPU 리소스를 더 효율적으로 활용할 수 있다. 추가 정보는 RTX-3090 및 A100에서의 배치 크기 및 그래디언트 누적 벤치마크를 참고하라. 
-
-### 3. 그래디언트 체크포인트 ###
-
-
 
 ### 용어 ###
 
