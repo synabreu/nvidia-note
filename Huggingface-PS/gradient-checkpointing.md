@@ -15,8 +15,8 @@
 
 ```
 training_args = TrainingArguments(
-    per_device_train_batch_size=1, // 각 GPU(또는 CPU)에서 한 번에 처리하는 배치 크기를 1로 설정
-    gradient_accumulation_steps=4, // Gradient Accumulation Step 수를 4로 설정. 4개의 미니배치를 처리한 후에 한 번의 최적화(Optimizer Step)를 수행
+    per_device_train_batch_size=1, 
+    gradient_accumulation_steps=4, 
     gradient_checkpointing=True,
     **default_args
 )
