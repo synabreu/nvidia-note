@@ -15,7 +15,7 @@
 
 | 메서드/도구 | 훈련 속도 향상 | 메모리 활용 최적화 |
 |----------------|----------------|---------------------|
-| [배치 크기 선택](https://github.com/synabreu/nvidia-note/edit/main/Huggingface-PS/perf_train_gpu_one.md# 1.-배치-크기-선택) | 예             | 예              |
+| [배치 크기 선택](https://github.com/synabreu/nvidia-note/edit/main/Huggingface-PS/perf_train_gpu_one.md#1.-배치-크기-선택) | 예             | 예              |
 | [그래디언트 누적](https://huggingface.co/docs/transformers/v4.48.2/en/perf_train_gpu_one#gradient-accumulation) | 아니오         | 예                  |
 | [그래디언트 체크포인트](https://huggingface.co/docs/transformers/v4.48.2/en/perf_train_gpu_one#gradient-checkpointing)  | 아니오   | 예   |
 | [혼합 정밀도 훈련](https://huggingface.co/docs/transformers/v4.48.2/en/perf_train_gpu_one#mixed-precision-training)  | 예   | 아마도*   |
