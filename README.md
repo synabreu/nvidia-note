@@ -23,7 +23,7 @@ NVIDIA 개발자 플랫폼에 대해 제가 스터디 한 것을 요약해서 �
 ##### [2. NCCL](https://github.com/synabreu/nvidia-note/blob/main/nccl-nvidia.md) #####
 ##### [3. Performance and Scalability - Distributed Learning](https://github.com/synabreu/nvidia-note/blob/main/distributed-learning.md) #####
 ##### [4. NIM](https://github.com/synabreu/nvidia-nim-summary) #####
-##### [5. TensorRT-LLM](https://github.com/synabreu/nvidia-ai/tensorrt-nvidia.md) #####
+##### [5. TensorRT-LLM](https://github.com/synabreu/nvidia-note/NVIDIA-AI/tensorrt-nvidia.md) #####
 
 ### 4. 관련 용어 ###
 -------------------------------------------------------------------------------------------------------------------------------
