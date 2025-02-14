@@ -1,4 +1,4 @@
-# TensorRT-LLM 정리 #
+# TensorRT-LLM #
 
   * TensorRT-LLM은 NVIDIA에서 개발한 오픈 소스 라이브러리
   * 대규모 언어 모델(LLM)의 추론 성능을 NVIDIA GPU에서 최적화하고 가속화하기 위해 설계되었음
