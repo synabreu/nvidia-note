@@ -44,7 +44,7 @@
 | HPC, 슈퍼컴퓨터, AI 훈련(LLM, GPT-4 등) | InfiniBand |
 | 데이터센터, 클라우드, 일반적인 AI/ML    | RoCE        |
 | 스토리지 (NVMe-oF, GPUDirect Storage)   | RoCE v2    |
-| 고성능 금융 애플리케이션 (Algo Trading, HFT) | InfiniBand (초저지연 필수) |
+| 고성능 금융 애플리케이션 (Algorithm Trading, HFT) | InfiniBand (초저지연 필수) |
 | 기존 이더넷 인프라 활용                 | RoCE        |
 | 데이터센터 내 멀티 테넌시 및 확장성 고려 | RoCE       | 
 
