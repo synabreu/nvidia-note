@@ -1,8 +1,8 @@
 # NVMe 스토리지 #
 
-  * NVMe(Non-Volatile Memory Express) 스토리지는 고속 SSD(Solid State Drive) 인터페이스 및 프로토콜로, 기존 SATA(SATA SSD) 및 SAS(SAS SSD) 대비 **훨씬 빠른 데이터 전송 속도와 낮은 지연시간(Latency)**을 제공함
+  * NVMe(Non-Volatile Memory Express) 스토리지는 고속 SSD(Solid State Drive) 인터페이스 및 프로토콜로, 기존 SATA(SATA SSD) 및 SAS(SAS SSD) 대비 훨씬 빠른 데이터 전송 속도와 낮은 지연시간(Latency)을 제공함
   *  AI, HPC, 클라우드, 빅데이터 분석과 같은 고성능 연산 환경에서 필수적인 기술
-  *  NVIDIA의 **GPUDirect Storage(GDS)**와 결합하면 GPU가 데이터를 보다 빠르게 로딩하여
+  *  NVIDIA의 GPUDirect Storage(GDS)와 결합하면 GPU가 데이터를 보다 빠르게 로딩하여
 AI 훈련 및 데이터 분석 속도를 획기적으로 향상
 
 ### 1. NVMe의 주요 특징 ###
