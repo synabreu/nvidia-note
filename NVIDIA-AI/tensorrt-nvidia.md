@@ -5,11 +5,9 @@
   * 사용자 친화적인 Python API를 제공하여 LLM을 정의하고, 이를 효율적으로 실행할 수 있는 TensorRT 엔진으로 컴파일함.
   * 최신 최적화를 포함하여 NVIDIA GPU에서 효율적인 추론을 수행함.
   * Python 및 C++ 런타임을 포함해 TensorRT-LLM 엔진을 실행할 수 있는 컴포넌트 제공
-
-### 1.  ###
-
-
-
+  * NVIDIA의 딥러닝 추론 라이브러리인 TensorRT를 기반으로 LLM에 특화된 최적화 추가 제공
+  * 단일 GPU부터 다중 노드의 다중 GPU에 이르는 다양한 구성에서 모델을 효율적으로 실행할 수 있음.
+  * NVIDIA Triton Inference Server와의 통합을 위한 백엔드도 포함되어 있어, 대규모 언어 모델의 배포를 더욱 용이하게 해주는 장점
 
 ### 공식 웹사이트 ###
 
@@ -19,7 +17,6 @@
 ### 유투브 ###
 
 * [Introducing TensorRT-LLM](https://youtu.be/hhhvZdkxsCE)
-
 
 ### 공식 블로그 ###
   
