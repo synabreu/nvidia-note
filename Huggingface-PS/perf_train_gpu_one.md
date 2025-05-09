@@ -81,14 +81,21 @@
    📌 Tensor Core를 활용하는 NVIDIA GPU에서는 특정 크기의 타일(예: 16x16, 32x32)을 사용하면 최적의 성능을 얻을 수 있음.
 
  ✅ 타일링을 적용하는 대표적인 기술
+ 
    🔹Loop Tiling / Blocking: CPU/GPU에서 for 루프 내의 연산을 블록 단위로 나누어 실행
+   
    🔹Tensor Core 연산: NVIDIA Tensor Core는 특정 크기의 타일(예: 16x16)을 사용해 행렬 연산 가속
+   
    🔹Image Processing (CNNs): 이미지 처리에서는 Convolution 연산에서 타일링을 활용하여 메모리 효율과 연산 속도를 향상
+   
    🔹Transformer 모델 최적화: GPT, BERT 같은 대형 모델에서 self-attention 연산을 타일링하여 메모리 사용량 감소
 
 ✅ 결론 
+
  🔹 타일링은 메모리 접근 패턴을 최적화하고 병렬 연산을 최대한 활용하기 위한 필수적인 기법
+ 
  🔹 행렬 곱셈(GEMM), CNN, Transformer 등에서 성능을 극대화하는 데 사용
+ 
  🔹 적절한 타일 크기를 선택하면 Tensor Core와 같은 가속 하드웨어의 성능을 극대화할 수 있음
 
   🚀 즉, 타일링은 대규모 행렬 연산에서 성능을 극대화하는 필수적인 최적화 기법
